@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AndroidKotlinAppForMyBackend</string>
+
+
+    <string name="ex_connect_failed">Connection failed. Please check your internet connection.</string>
+    <string name="ex_common_occ">An error occurred. Please try again.</string>
 </resources>
