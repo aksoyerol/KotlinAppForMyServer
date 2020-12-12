@@ -52,6 +52,7 @@ class TokenService {
 
         suspend fun checkToken(): ApiResponse<Unit> {
             try {
+                //TODO token_api olarak değiştirilecek.
                 val preferences =
                     GlobalApp.getAppContext().getSharedPreferences("ApiToken", Context.MODE_PRIVATE)
 

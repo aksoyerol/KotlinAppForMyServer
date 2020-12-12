@@ -1,5 +1,6 @@
 package com.erolaksoy.androidkotlinappformybackend.util
 
+import OfflineException
 import android.content.Context
 import com.erolaksoy.androidkotlinappformybackend.R
 import com.erolaksoy.androidkotlinappformybackend.models.ApiError
@@ -7,7 +8,6 @@ import com.erolaksoy.androidkotlinappformybackend.models.ApiResponse
 import com.erolaksoy.androidkotlinappformybackend.models.Token
 import com.google.gson.Gson
 import retrofit2.Response
-import java.lang.Exception
 
 
 class HelperService {

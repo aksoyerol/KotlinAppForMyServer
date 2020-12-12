@@ -1,5 +1,6 @@
-package com.erolaksoy.androidkotlinappformybackend.util
+import java.io.IOException
 
-class OfflineException(message:String) : Exception(message){
+//Exception -> IOException sınıfıyla değiştirildi.
+class OfflineException(message:String) : IOException(message){
 
 }

@@ -1,7 +1,8 @@
 package com.erolaksoy.androidkotlinappformybackend.services.interceptors
 
+import OfflineException
 import com.erolaksoy.androidkotlinappformybackend.util.LiveNetworkListener
-import com.erolaksoy.androidkotlinappformybackend.util.OfflineException
+
 import okhttp3.Interceptor
 import okhttp3.Response
 
