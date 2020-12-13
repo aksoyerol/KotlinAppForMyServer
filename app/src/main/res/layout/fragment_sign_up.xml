@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context="ui.signup.SignUpFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="115dp"
+                android:layout_height="128dp"
+                android:layout_gravity="center"
+                android:src="@drawable/sign_up" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="37dp"
+                android:fontFamily="@font/amaranth"
+                android:text="Sign up"
+                android:textSize="28sp" />
+
+            <EditText
+                android:id="@+id/txtUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="31dp"
+                android:layout_marginRight="24dp"
+                android:background="#efefef"
+                android:fontFamily="@font/amaranth"
+                android:hint="Username"
+                android:paddingLeft="13.6dp"
+                android:paddingTop="13.6dp"
+                android:paddingBottom="14.4dp"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="24dp"
+                android:background="#efefef"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/amaranth"
+                android:hint="E-Mail"
+                android:paddingLeft="13.6dp"
+                android:paddingTop="13.6dp"
+                android:paddingBottom="14.4dp"
+
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/txtCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="24dp"
+                android:background="#efefef"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/amaranth"
+                android:hint="City"
+                android:paddingLeft="13.6dp"
+                android:paddingTop="13.6dp"
+                android:paddingBottom="14.4dp"
+
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/txtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="24dp"
+                android:background="#efefef"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/amaranth"
+                android:hint="Password"
+                android:paddingLeft="13.6dp"
+                android:paddingTop="13.6dp"
+                android:paddingBottom="14.4dp"
+                android:password="true"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnCreateAccount"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/amaranth"
+            android:gravity="center"
+            android:text="Create account"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+</layout>
