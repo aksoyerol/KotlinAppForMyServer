@@ -19,7 +19,7 @@ class LoginService {
         suspend fun signUp(userSignUp: UserSignUp): ApiResponse<Unit> {
             try {
                 val tokenResponse = TokenService.getTokenWithClientCredential()
-                if (!tokenResponse.isSuccess) return ApiResponse(false)
+                if (!tokenResponse.isSuccess) return ApiResponse(false,fail = tokenResponse.fail)
                 val token = tokenResponse.response!!.AccessToken
                 val response =
                     retrofitTokenService.signUp(userSignUp, "Bearer $token")

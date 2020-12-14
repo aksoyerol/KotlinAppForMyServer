@@ -6,13 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".ui.launch.LaunchActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="94dp"
-        android:layout_height="19dp"
-        android:text="Launch Activty"
+    <ImageView
+        android:id="@+id/loading_image"
+        android:layout_width="225dp"
+        android:layout_height="225dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/launch_activity_loading" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

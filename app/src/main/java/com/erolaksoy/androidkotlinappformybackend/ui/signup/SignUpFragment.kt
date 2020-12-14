@@ -11,6 +11,8 @@ import androidx.viewpager2.widget.ViewPager2
 import com.erolaksoy.androidkotlinappformybackend.R
 import com.erolaksoy.androidkotlinappformybackend.databinding.FragmentSignUpBinding
 import com.erolaksoy.androidkotlinappformybackend.models.UserSignUp
+import com.erolaksoy.androidkotlinappformybackend.util.HelperService
+import com.erolaksoy.androidkotlinappformybackend.util.LoadingState
 
 class SignUpFragment : Fragment() {
 
@@ -22,6 +24,18 @@ class SignUpFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         val viewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
         val viewPager = requireActivity().findViewById<ViewPager2>(R.id.LoginViewPager)
+
+        viewModel.loadingState.observe(viewLifecycleOwner, Observer {
+            when(it){
+                LoadingState.LOADING -> binding.btnCreateAccount.startAnimation()
+                LoadingState.LOADED -> binding.btnCreateAccount.revertAnimation()
+            }
+        })
+
+        viewModel.errorState.observe(viewLifecycleOwner, Observer {
+            HelperService.showErrorMessageWithToast(it)
+        })
+
         binding.btnCreateAccount.setOnClickListener {
             val userSignUp = UserSignUp(
                 binding.txtUsername.text.toString(),

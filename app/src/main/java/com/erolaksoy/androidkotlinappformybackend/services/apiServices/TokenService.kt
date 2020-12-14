@@ -54,7 +54,7 @@ class TokenService {
             try {
                 //TODO token_api olarak değiştirilecek.
                 val preferences =
-                    GlobalApp.getAppContext().getSharedPreferences("ApiToken", Context.MODE_PRIVATE)
+                    GlobalApp.getAppContext().getSharedPreferences("token_api", Context.MODE_PRIVATE)
 
                 val tokenString: String =
                     preferences.getString("token", null) ?: return ApiResponse(false)
@@ -67,7 +67,7 @@ class TokenService {
 
                 if (!response.isSuccessful) return ApiResponse(false)
                 val introspect = response.body() as Introspect
-                if (introspect.active) return ApiResponse(false)
+                if (!introspect.active) return ApiResponse(false)
 
                 return ApiResponse(true)
             } catch (ex: Exception) {

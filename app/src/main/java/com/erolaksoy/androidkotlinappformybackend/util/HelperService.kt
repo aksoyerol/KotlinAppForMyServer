@@ -2,12 +2,14 @@ package com.erolaksoy.androidkotlinappformybackend.util
 
 import OfflineException
 import android.content.Context
+import android.widget.Toast
 import com.erolaksoy.androidkotlinappformybackend.R
 import com.erolaksoy.androidkotlinappformybackend.models.ApiError
 import com.erolaksoy.androidkotlinappformybackend.models.ApiResponse
 import com.erolaksoy.androidkotlinappformybackend.models.Token
 import com.google.gson.Gson
 import retrofit2.Response
+import java.lang.StringBuilder
 
 
 class HelperService {
@@ -51,6 +53,16 @@ class HelperService {
                     ApiResponse(false, null, apiError)
                 }
             }
+        }
+
+        fun showErrorMessageWithToast(apiError: ApiError?) {
+            if (apiError == null) return
+            val stringBuilder = StringBuilder()
+            for (error in apiError.errors) {
+                stringBuilder.append(error+"\n")
+            }
+            Toast.makeText(GlobalApp.getAppContext(), stringBuilder.toString(), Toast.LENGTH_LONG)
+                .show()
         }
 
     }
