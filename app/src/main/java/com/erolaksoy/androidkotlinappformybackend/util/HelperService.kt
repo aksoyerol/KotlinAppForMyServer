@@ -15,6 +15,17 @@ import java.lang.StringBuilder
 class HelperService {
     companion object {
 
+        fun getTokenSharedPreferences(): Token? {
+            val sharedPreferences =
+                GlobalApp.getAppContext().getSharedPreferences("token_api", Context.MODE_PRIVATE)
+            val tokenString = sharedPreferences.getString("token", null)
+            var token: Token? = null
+            if (!tokenString.isNullOrEmpty()) {
+                token = Gson().fromJson(tokenString, Token::class.java)
+            }
+            return token
+        }
+
         fun saveTokenSharedPreferences(token: Token) {
             val sharedPreferences =
                 GlobalApp.getAppContext().getSharedPreferences("token_api", Context.MODE_PRIVATE)
@@ -59,7 +70,7 @@ class HelperService {
             if (apiError == null) return
             val stringBuilder = StringBuilder()
             for (error in apiError.errors) {
-                stringBuilder.append(error+"\n")
+                stringBuilder.append(error + "\n")
             }
             Toast.makeText(GlobalApp.getAppContext(), stringBuilder.toString(), Toast.LENGTH_LONG)
                 .show()
