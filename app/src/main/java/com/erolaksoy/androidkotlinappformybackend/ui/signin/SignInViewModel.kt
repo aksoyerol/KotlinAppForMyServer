@@ -21,6 +21,8 @@ class SignInViewModel : ViewModel(),IViewModelState{
         viewModelScope.launch{
             val response = LoginService.signIn(userSignIn)
             status.value=response.isSuccess
+            //errorState.value = response.fail
+            //TODO ApiError class'ına invalid grant hatası için apiError prop oluşturulacak. App Crash oluyor.
             loadingState.value = LoadingState.LOADED
             if(!response.isSuccess) errorState.value = response.fail
         }

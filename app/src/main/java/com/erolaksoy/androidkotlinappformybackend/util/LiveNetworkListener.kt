@@ -24,7 +24,7 @@ class LiveNetworkListener {
         fun isConnected(): Boolean {
             val context = GlobalApp.getAppContext()
             val connectionType = getConnectionType(context)
-            return connectionType!=0
+            return connectionType != 0
         }
     }
 }

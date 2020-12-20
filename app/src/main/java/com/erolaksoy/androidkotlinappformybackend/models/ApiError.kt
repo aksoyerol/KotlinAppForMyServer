@@ -8,6 +8,8 @@ data class ApiError(
     @SerializedName("isShow")
     var isShow:Boolean,
     @SerializedName("errors")
-    var errors:ArrayList<String>
+    var errors:ArrayList<String>,
+    @SerializedName("error")
+    var error:String?=null
 ) {
 }

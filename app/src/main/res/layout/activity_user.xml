@@ -6,13 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".ui.user.UserActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="94dp"
-        android:layout_height="19dp"
-        android:text="User Activty"
+    <LinearLayout
+        android:id="@+id/userLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="15"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <fragment
+            android:id="@+id/userNavHostFragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="14"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/user_navigation" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Products" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile" />
+        </com.google.android.material.tabs.TabLayout>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

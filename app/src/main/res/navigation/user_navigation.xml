@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_navigation"
+    app:startDestination="@id/productListFragment">
+
+    <fragment
+        android:id="@+id/productAddFragment"
+        android:name="com.erolaksoy.androidkotlinappformybackend.ui.product.productAdd.ProductAddFragment"
+        android:label="product_add_fragment"
+        tools:layout="@layout/product_add_fragment" />
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.erolaksoy.androidkotlinappformybackend.ui.product.productDetail.ProductDetailFragment"
+        android:label="product_detail_fragment"
+        tools:layout="@layout/product_detail_fragment" >
+        <action
+            android:id="@+id/action_productDetailFragment_to_productUpdateFragment"
+            app:destination="@id/productUpdateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.erolaksoy.androidkotlinappformybackend.ui.product.productList.ProductListFragment"
+        android:label="product_list_fragment"
+        tools:layout="@layout/product_list_fragment" >
+        <action
+            android:id="@+id/action_productListFragment_to_productAddFragment"
+            app:destination="@id/productAddFragment" />
+        <action
+            android:id="@+id/action_productListFragment_to_productDetailFragment2"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productUpdateFragment"
+        android:name="com.erolaksoy.androidkotlinappformybackend.ui.product.productUpdate.ProductUpdateFragment"
+        android:label="product_update_fragment"
+        tools:layout="@layout/product_update_fragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.erolaksoy.androidkotlinappformybackend.ui.user.profile.ProfileFragment"
+        android:label="profile_fragment"
+        tools:layout="@layout/profile_fragment" />
+</navigation>
