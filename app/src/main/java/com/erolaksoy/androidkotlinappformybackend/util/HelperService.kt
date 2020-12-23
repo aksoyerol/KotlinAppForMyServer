@@ -75,7 +75,6 @@ class HelperService {
             for (error in apiError.errors) {
                 stringBuilder.append(error + "\n")
             }
-
             Toast.makeText(GlobalApp.getAppContext(), stringBuilder.toString(), Toast.LENGTH_LONG)
                 .show()
         }
