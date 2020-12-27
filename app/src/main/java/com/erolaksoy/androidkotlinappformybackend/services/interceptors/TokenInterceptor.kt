@@ -1,10 +1,12 @@
 package com.erolaksoy.androidkotlinappformybackend.services.interceptors
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import com.erolaksoy.androidkotlinappformybackend.models.ApiResponse
 import com.erolaksoy.androidkotlinappformybackend.models.Token
 import com.erolaksoy.androidkotlinappformybackend.services.apiServices.TokenService
+import com.erolaksoy.androidkotlinappformybackend.ui.login.LoginActivity
 import com.erolaksoy.androidkotlinappformybackend.util.GlobalApp
 import com.erolaksoy.androidkotlinappformybackend.util.HelperService
 import com.google.gson.Gson
@@ -39,6 +41,10 @@ class TokenInterceptor : Interceptor {
                         .addHeader("Authorization", "Bearer ${newToken!!.AccessToken}").build()
                     response = chain.proceed(request)
                 }
+            } else {
+                val intent = Intent(GlobalApp.getAppContext(), LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                GlobalApp.getAppContext().startActivity(intent)
             }
         }
         return response

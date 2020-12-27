@@ -7,4 +7,9 @@ data class Category(
     var Id: Int,
     @SerializedName("Name")
     var Name: String
-) {}
+) {
+    override fun toString(): String {
+        return Name
+    }
+
+}
