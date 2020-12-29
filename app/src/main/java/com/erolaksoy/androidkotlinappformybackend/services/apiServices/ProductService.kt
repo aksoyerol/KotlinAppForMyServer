@@ -39,8 +39,8 @@ class ProductService {
             try {
                 val response = retrofitService.addProduct(product)
                 if (!response.isSuccessful) return HelperService.handleApiError(response)
-                val oDataProduct = response.body() as ODataModel<Product>
-                return ApiResponse(true, oDataProduct.value[0])
+                val responseProduct = response.body() as Product
+                return ApiResponse(true, responseProduct)
             } catch (ex: Exception) {
                 return HelperService.handleException(ex)
             }

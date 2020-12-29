@@ -15,7 +15,7 @@ data class Product(
     var Stock: Int,
     @SerializedName("PhotoPath")
     var PhotoPath: String,
-    @SerializedName("Category")
-    var Category: Category
+    @SerializedName("CategoryId")
+    var CategoryId: Int
 ) {
 }
