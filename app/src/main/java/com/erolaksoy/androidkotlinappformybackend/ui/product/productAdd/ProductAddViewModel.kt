@@ -39,7 +39,7 @@ class ProductAddViewModel() : ViewModel(), IViewModelState {
             if (fileUri != null) {
                 val photoResponse = PhotoService.uploadPhoto(fileUri)
                 if (!photoResponse.isSuccess) errorState.value = photoResponse.fail
-                product.PhotoPath = photoResponse.response!!.Url
+                product.PhotoPath = photoResponse.response!!.Url //PhotoPath Set coming ProductAddFragment
             }
 
             val productResponse = ProductService.addProduct(product)
