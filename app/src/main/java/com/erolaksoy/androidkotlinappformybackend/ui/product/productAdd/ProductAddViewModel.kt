@@ -26,25 +26,28 @@ class ProductAddViewModel() : ViewModel(), IViewModelState {
             val response = CategoryService.getCategoryList()
             if (!response.isSuccess) errorState.value = response.fail
             categoryReturn.value = response.response
+            loadingState.value = LoadingState.LOADED
         }
-        loadingState.value = LoadingState.LOADED
+
         return categoryReturn
     }
 
-    fun addProduct(product: Product, fileUri: Uri?):LiveData<Product> {
+    fun addProduct(product: Product, fileUri: Uri?): LiveData<Product> {
         loadingState.value = LoadingState.LOADING
         val productReturn = MutableLiveData<Product>()
         viewModelScope.launch {
-            if(fileUri!=null){
+            if (fileUri != null) {
                 val photoResponse = PhotoService.uploadPhoto(fileUri)
-                if(!photoResponse.isSuccess) errorState.value = photoResponse.fail
+                if (!photoResponse.isSuccess) errorState.value = photoResponse.fail
                 product.PhotoPath = photoResponse.response!!.Url
             }
 
             val productResponse = ProductService.addProduct(product)
-            if(!productResponse.isSuccess) errorState.value = productResponse.fail
+            if (!productResponse.isSuccess) errorState.value = productResponse.fail
             productReturn.value = productResponse.response
+            loadingState.value = LoadingState.LOADED
         }
+
         return productReturn
     }
 }
