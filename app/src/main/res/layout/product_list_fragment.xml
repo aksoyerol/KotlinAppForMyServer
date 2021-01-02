@@ -3,23 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.product.productList.ProductListFragment">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/productAddFAB"
             android:layout_width="wrap_content"
+            android:layout_gravity="bottom|right"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
-
             android:layout_marginBottom="24dp"
             android:clickable="true"
             android:contentDescription="AddProduct"
             android:src="@drawable/baseline_description_red_50_24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
 </layout>

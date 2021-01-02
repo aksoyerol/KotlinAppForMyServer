@@ -42,4 +42,21 @@ class ProductListAdapter(val productList: ArrayList<Product>) :
     override fun getItemCount(): Int {
         return productList.size
     }
+
+    fun addProduct(newProducts: ArrayList<Product>) {
+        productList.addAll(newProducts)
+        notifyDataSetChanged()
+    }
+
+    fun addLoading() {
+        val loadingProduct = Product(0, "", 0.0, "", 0, "", 0)
+        productList.add(loadingProduct)
+        notifyDataSetChanged()
+    }
+
+    fun removeLoading() {
+        val position = productList.size - 1
+        productList.removeAt(position)
+        notifyDataSetChanged()
+    }
 }
