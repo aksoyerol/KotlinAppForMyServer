@@ -53,7 +53,9 @@
     <style name="ThemeOverlay.MaterialComponents.TextInputEditText.customMaterialTextEdit">
         <item name="fontFamily">@font/amaranth</item>
     </style>
-
+    <style name="Base.Widget.AppCompat.TextView.AutoFontProject" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/amaranth</item>
+    </style>
 
 
 </resources>

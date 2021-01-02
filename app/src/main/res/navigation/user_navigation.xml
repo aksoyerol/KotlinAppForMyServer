@@ -32,7 +32,7 @@
             android:id="@+id/action_productListFragment_to_productAddFragment"
             app:destination="@id/productAddFragment"
             app:popUpTo="@id/productListFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_productListFragment_to_productDetailFragment2"
             app:destination="@id/productDetailFragment" />
