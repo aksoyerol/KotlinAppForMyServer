@@ -19,10 +19,13 @@ class ProductListItemHolder(private val binding: ProductListItemBinding) :
         txtProductName.text = item.Name
         txtProductStock.text = item.Stock.toString()
         txtProductPrice.text = item.Price.toString()
-        val imageUri = "${ApiConsts.photoApiBaseUrl}/${item.PhotoPath}"
-        Glide.with(productImage.context).load(imageUri)
-            .apply(
-                RequestOptions().placeholder(R.drawable.add_photo).error(R.drawable.add_photo)
-            ).into(productImage)
+        val imageUri = if(item.PhotoPath!=" " && item.PhotoPath!=null){"${ApiConsts.photoApiBaseUrl}/${item.PhotoPath}"}else null
+
+            Glide.with(productImage.context).load(imageUri)
+                .apply(
+                    RequestOptions().placeholder(R.drawable.add_photo).error(R.drawable.login_image)
+                ).into(productImage)
+
+
     }
 }

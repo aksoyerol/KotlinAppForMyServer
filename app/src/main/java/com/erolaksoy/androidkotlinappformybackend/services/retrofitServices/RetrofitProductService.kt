@@ -7,7 +7,7 @@ import retrofit2.http.*
 
 interface RetrofitProductService {
 
-    @GET("/odata/products?\$expand=category(\$select=Name)&\$select=id,name,stock,price,photoPath&\$orderby id desc")
+    @GET("/odata/products?\$expand=category(\$select=Name)&\$select=id,name,stock,price,photoPath&\$orderby=id desc")
     suspend fun getAllProducts(@Query("\$skip") page:Int):Response<ODataModel<Product>>
 
     @GET("/odata/products({productId})")
