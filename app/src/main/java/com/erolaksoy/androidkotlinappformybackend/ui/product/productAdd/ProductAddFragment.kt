@@ -60,6 +60,7 @@ class ProductAddFragment : Fragment() {
                 Stock = binding.txtStock.editText?.text.toString().toInt(),
                 PhotoPath = virtualFileUri.toString(),
                 CategoryId = selectedCategory.Id,
+                Category = null
             )
 
             viewModel.addProduct(product, virtualFileUri).observe(viewLifecycleOwner, Observer {

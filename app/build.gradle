@@ -20,15 +20,15 @@ android {
         versionCode 1
         versionName "1.0"
 
-        buildConfigField("String","ClientId_CC",apiKeyProperties["ClientId_CC"])
-        buildConfigField("String","ClientSecrets_CC",apiKeyProperties["ClientSecrets_CC"])
-        buildConfigField("String","ClientId_ROP",apiKeyProperties["ClientId_ROP"])
-        buildConfigField("String","ClientSecrets_ROP",apiKeyProperties["ClientSecrets_ROP"])
+        buildConfigField("String", "ClientId_CC", apiKeyProperties["ClientId_CC"])
+        buildConfigField("String", "ClientSecrets_CC", apiKeyProperties["ClientSecrets_CC"])
+        buildConfigField("String", "ClientId_ROP", apiKeyProperties["ClientId_ROP"])
+        buildConfigField("String", "ClientSecrets_ROP", apiKeyProperties["ClientSecrets_ROP"])
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildFeatures{
+    buildFeatures {
         dataBinding true
     }
 

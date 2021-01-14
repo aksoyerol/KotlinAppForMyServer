@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_productDetailFragment_to_productUpdateFragment"
             app:destination="@id/productUpdateFragment" />
+        <argument
+            android:name="product_id"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/productListFragment"
@@ -34,7 +37,7 @@
             app:popUpTo="@id/productListFragment"
             app:popUpToInclusive="false" />
         <action
-            android:id="@+id/action_productListFragment_to_productDetailFragment2"
+            android:id="@+id/action_productListFragment_to_productDetailFragment"
             app:destination="@id/productDetailFragment" />
     </fragment>
     <fragment

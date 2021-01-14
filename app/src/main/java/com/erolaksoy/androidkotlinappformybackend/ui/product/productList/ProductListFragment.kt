@@ -31,6 +31,7 @@ class ProductListFragment : Fragment() {
 
         UserActivity.setLoadingState(viewModel, viewLifecycleOwner)
         UserActivity.setErrorState(viewModel, viewLifecycleOwner)
+
         binding.productAddFAB.setOnClickListener {
             val action =
                 ProductListFragmentDirections.actionProductListFragmentToProductAddFragment()
@@ -40,7 +41,7 @@ class ProductListFragment : Fragment() {
         layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.productListRecyclerView.layoutManager = layoutManager
 
-
+        //Paging
         if (page == 0) viewModel.getProducts(page)
         else binding.productListRecyclerView.adapter = productListAdapter
 
@@ -52,7 +53,10 @@ class ProductListFragment : Fragment() {
             } else {
                 if (page == 0) {    //ilk kez veri çekiyorsak
                     binding.productListRecyclerView.apply {
-                        productListAdapter = ProductListAdapter(productList)
+                        productListAdapter = ProductListAdapter(productList, onClickListener = {
+                            val action = ProductListFragmentDirections.actionProductListFragmentToProductDetailFragment(it.Id)
+                            findNavController().navigate(action)
+                        })
                         adapter = productListAdapter
                     }
                 }

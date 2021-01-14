@@ -7,7 +7,10 @@ import com.erolaksoy.androidkotlinappformybackend.databinding.ProductListItemBin
 import com.erolaksoy.androidkotlinappformybackend.databinding.ProductListLoadingItemBinding
 import com.erolaksoy.androidkotlinappformybackend.models.Product
 
-class ProductListAdapter(val productList: ArrayList<Product>) :
+class ProductListAdapter(
+    val productList: ArrayList<Product>,
+    private val onClickListener: (Product) -> Unit
+) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
@@ -37,6 +40,7 @@ class ProductListAdapter(val productList: ArrayList<Product>) :
         if (holder is ProductListItemHolder) {
             holder.bind(item)
         }
+        holder.itemView.setOnClickListener { onClickListener(item) }
     }
 
     override fun getItemCount(): Int {
@@ -49,7 +53,7 @@ class ProductListAdapter(val productList: ArrayList<Product>) :
     }
 
     fun addLoading() {
-        val loadingProduct = Product(0, "", 0.0, "", 0, "", 0)
+        val loadingProduct = Product(0, "", 0.0, "", 0, "", 0,null)
         productList.add(loadingProduct)
         notifyDataSetChanged()
     }
