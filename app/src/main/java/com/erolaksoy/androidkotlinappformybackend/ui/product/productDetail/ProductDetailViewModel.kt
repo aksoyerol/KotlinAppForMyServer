@@ -11,17 +11,33 @@ import com.erolaksoy.androidkotlinappformybackend.util.IViewModelState
 import com.erolaksoy.androidkotlinappformybackend.util.LoadingState
 import kotlinx.coroutines.launch
 
-class ProductDetailViewModel() : ViewModel(),IViewModelState{
+class ProductDetailViewModel() : ViewModel(), IViewModelState {
     override var errorState: MutableLiveData<ApiError> = MutableLiveData()
     override var loadingState: MutableLiveData<LoadingState> = MutableLiveData()
 
     fun getProductById(productId: Int): LiveData<Product> {
-        var productReturn = MutableLiveData<Product>()
+        val productReturn = MutableLiveData<Product>()
         loadingState.value = LoadingState.LOADING
         viewModelScope.launch {
             val response = ProductService.getProductById(productId)
             if (!response.isSuccess) errorState.value = response.fail
             productReturn.value = response.response
+            loadingState.value = LoadingState.LOADED
+        }
+        return productReturn
+    }
+
+    fun deleteProduct(productId: Int): LiveData<Boolean> {
+        val productReturn = MutableLiveData<Boolean>()
+        loadingState.value = LoadingState.LOADING
+        viewModelScope.launch {
+            val response = ProductService.deleteProduct(productId)
+            if (!response.isSuccess) {
+                errorState.value = response.fail
+                productReturn.value = false
+            } else {
+                productReturn.value = true
+            }
             loadingState.value = LoadingState.LOADED
         }
         return productReturn

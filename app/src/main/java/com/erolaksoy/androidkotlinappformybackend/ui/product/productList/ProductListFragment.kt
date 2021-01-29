@@ -46,7 +46,7 @@ class ProductListFragment : Fragment() {
         else binding.productListRecyclerView.adapter = productListAdapter
 
         viewModel.products.observe(viewLifecycleOwner, Observer { productList ->
-            if (productList.size == 0 && page != 0) {   //size 0 ve page 0'dan farklı olursa son sayfada oluruz
+            if ((productList.size == 0 || productList.size==null) && page != 0) {   //size 0 ve page 0'dan farklı olursa son sayfada oluruz
                 productListAdapter?.removeLoading()
                 isLoading = false
                 isLastPage = true
